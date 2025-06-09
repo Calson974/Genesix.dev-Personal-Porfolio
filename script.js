@@ -192,63 +192,36 @@ document.addEventListener('DOMContentLoaded', function() {
     item.classList.add('fade-up');
   });
 
-  // Contact form submission with validation
+  // Contact form submission with validation and status message
   const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
+  const formStatus = document.getElementById('form-status');
+  if (contactForm && formStatus) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      
+
       // Basic form validation
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value;
-      
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+
       if (!name || !email || !subject || !message) {
-        alert('Please fill out all fields in the form.');
+        formStatus.textContent = 'Please fill out all fields in the form.';
+        formStatus.style.color = 'red';
         return;
       }
-      
-      // Simulate form submission (would normally send to a backend)
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalBtnText = submitBtn.textContent;
-      
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-      
-      // Simulate async request
+
+      // Simulate form submission
+      formStatus.textContent = 'Sending...';
+      formStatus.style.color = '#333';
+      contactForm.querySelector('button[type="submit"]').disabled = true;
+
       setTimeout(() => {
-        alert('Message sent successfully! I will get back to you soon.');
+        formStatus.textContent = "Thank you for reaching out! I'll get back to you soon.";
+        formStatus.style.color = "green";
         contactForm.reset();
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalBtnText;
-      }, 1500);
-      
-      // In a real application, you would use Formspree or a similar service:
-      // const form = e.target;
-      // const formData = new FormData(form);
-      // fetch("https://formspree.io/f/your-form-id", {
-      //   method: "POST",
-      //   body: formData,
-      //   headers: {
-      //     Accept: "application/json",
-      //   },
-      // })
-      //   .then((response) => {
-      //     if (response.ok) {
-      //       alert("Message sent successfully!");
-      //       form.reset();
-      //     } else {
-      //       alert("Failed to send message. Please try again.");
-      //     }
-      //     submitBtn.disabled = false;
-      //     submitBtn.textContent = originalBtnText;
-      //   })
-      //   .catch(() => {
-      //     alert("Failed to send message. Please try again.");
-      //     submitBtn.disabled = false;
-      //     submitBtn.textContent = originalBtnText;
-      //   });
+        contactForm.querySelector('button[type="submit"]').disabled = false;
+      }, 1200);
     });
   }    
   // Add animation classes to various elements
@@ -344,5 +317,6 @@ document.addEventListener('DOMContentLoaded', function() {
               progressBar.style.width = width;
             }
           }
-        });
-      });
+
+    });
+});
