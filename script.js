@@ -192,13 +192,13 @@ document.addEventListener('DOMContentLoaded', function() {
     item.classList.add('fade-up');
   });
 
-  // Contact form submission with validation and status message
+  // Contact form submission with validation
   const contactForm = document.getElementById('contact-form');
   const formStatus = document.getElementById('form-status');
-  if (contactForm && formStatus) {
+  
+  // Only add the submit handler if the form exists
+  if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-
       // Basic form validation
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
@@ -206,24 +206,30 @@ document.addEventListener('DOMContentLoaded', function() {
       const message = document.getElementById('message').value.trim();
 
       if (!name || !email || !subject || !message) {
-        formStatus.textContent = 'Please fill out all fields in the form.';
-        formStatus.style.color = 'red';
-        return;
+        e.preventDefault(); // Prevent form submission
+        if (formStatus) {
+          formStatus.textContent = 'Please fill out all fields in the form.';
+          formStatus.style.color = 'red';
+        }
+        return false;
       }
 
-      // Simulate form submission
-      formStatus.textContent = 'Sending...';
-      formStatus.style.color = '#333';
-      contactForm.querySelector('button[type="submit"]').disabled = true;
-
-      setTimeout(() => {
-        formStatus.textContent = "Thank you for reaching out! I'll get back to you soon.";
-        formStatus.style.color = "green";
-        contactForm.reset();
-        contactForm.querySelector('button[type="submit"]').disabled = false;
-      }, 1200);
+      // Show sending message if status element exists
+      if (formStatus) {
+        formStatus.textContent = 'Sending...';
+        formStatus.style.color = '#333';
+      }
+      
+      // Disable the submit button to prevent multiple submissions
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
+      
+      // The form will now submit normally to FormSubmit
+      // We'll let the form submit naturally since we can't do AJAX due to CORS
     });
-  }    
+  }
   // Add animation classes to various elements
   const sections = document.querySelectorAll('.section');
 

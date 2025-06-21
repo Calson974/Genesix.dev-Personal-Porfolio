@@ -477,6 +477,12 @@
           <div class="contact-form-container">
             <h3>Send Me a Message</h3>
             <form id="contact-form" class="contact-form" action="https://formsubmit.co/cooljimmy974@gmail.com" method="POST">
+              <!-- Add hidden inputs for FormSubmit -->
+              <input type="hidden" name="_next" value="YOUR_WEBSITE_URL/thank-you.html">
+              <input type="hidden" name="_subject" value="New message from your portfolio">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="text" name="_honey" style="display:none">
+              <input type="hidden" name="_template" value="table">
               <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="e.g Carl" required>
