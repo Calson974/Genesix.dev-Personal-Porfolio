@@ -46,37 +46,59 @@
   
     .mobile-menu-open {
       position: fixed;
-      top: 80px;
+      top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: hsla(var(--color-background), 0.9);
-      backdrop-filter: blur(8px);
-      z-index: 40;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(30, 20, 60, 0.7);
+      backdrop-filter: blur(16px) saturate(180%);
+      z-index: 100;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 2rem;
+      justify-content: center;
+      padding: 0;
+      animation: menuFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
   
     .mobile-menu-open .nav-menu {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 2.5rem;
       text-align: center;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      animation: menuItemsFadeIn 0.7s 0.2s both;
     }
   
-    .mobile-menu-open .mobile-menu-toggle span:first-child {
-      transform: translateY(8px) rotate(45deg);
-    }
-  
-    .mobile-menu-open .mobile-menu-toggle span:nth-child(2) {
+    .mobile-menu-open .nav-menu li {
       opacity: 0;
+      transform: translateY(30px);
+      animation: menuItemSlideIn 0.5s forwards;
     }
+    .mobile-menu-open .nav-menu li:nth-child(1) { animation-delay: 0.15s; }
+    .mobile-menu-open .nav-menu li:nth-child(2) { animation-delay: 0.25s; }
+    .mobile-menu-open .nav-menu li:nth-child(3) { animation-delay: 0.35s; }
+    .mobile-menu-open .nav-menu li:nth-child(4) { animation-delay: 0.45s; }
+    .mobile-menu-open .nav-menu li:nth-child(5) { animation-delay: 0.55s; }
+    .mobile-menu-open .nav-menu li:nth-child(6) { animation-delay: 0.65s; }
   
-    .mobile-menu-open .mobile-menu-toggle span:last-child {
-      transform: translateY(-8px) rotate(-45deg);
+    @keyframes menuFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes menuItemsFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes menuItemSlideIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   
     .skills-grid {
