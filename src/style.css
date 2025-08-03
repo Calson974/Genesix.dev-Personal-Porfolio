@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fix for Vue transitions */
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -10,6 +21,20 @@
   body {
     @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300;
   }
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
 @layer components {
