@@ -79,22 +79,22 @@ const skillCategories = [
     title: 'Frontend Development',
     skills: [
       { name: 'HTML/CSS', level: 95 },
-      { name: 'JavaScript', level: 88 },
-      { name: 'Vue.js', level: 90 },
-      { name: 'React', level: 85 },
-      { name: 'TypeScript', level: 80 },
-      { name: 'Tailwind CSS', level: 90 }
+      { name: 'JavaScript', level: 92 },
+      { name: 'React', level: 90 },
+      { name: 'Vue.js', level: 88 },
+      { name: 'TypeScript', level: 85 },
+      { name: 'Tailwind CSS', level: 95 }
     ]
   },
   {
     title: 'Backend Development',
     skills: [
-      { name: 'Node.js', level: 75 },
-      { name: 'Express.js', level: 70 },
-      { name: 'MongoDB', level: 65 },
-      { name: 'PostgreSQL', level: 60 },
+      { name: 'Node.js', level: 80 },
+      { name: 'Express.js', level: 75 },
+      { name: 'PostgreSQL', level: 85 },
+      { name: 'MongoDB', level: 70 },
       { name: 'REST APIs', level: 80 },
-      { name: 'GraphQL', level: 50 }
+      { name: 'GraphQL', level: 65 }
     ]
   },
   {
@@ -104,15 +104,15 @@ const skillCategories = [
       { name: 'VS Code', level: 95 },
       { name: 'Figma', level: 75 },
       { name: 'Responsive Design', level: 95 },
-      { name: 'UI/UX Design', level: 70 },
-      { name: 'Performance Optimization', level: 65 }
+      { name: 'UI/UX Design', level: 80 },
+      { name: 'Performance Optimization', level: 75 }
     ]
   }
 ]
 
 const additionalTechs = [
-  'Vite', 'Nuxt.js', 'Next.js', 'Firebase', 'Supabase', 'Prisma',
-  'Jest', 'Cypress', 'Docker', 'AWS', 'Vercel', 'Netlify'
+  'Vite', 'Nuxt.js', 'Next.js', 'Firebase', 'Supabase', 'Prisma', 'Sass/SCSS',
+  'Jest', 'Cypress', 'Docker', 'AWS', 'Vercel', 'Netlify', 'Webpack'
 ]
 
 onMounted(() => {

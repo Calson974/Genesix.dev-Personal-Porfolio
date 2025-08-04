@@ -11,13 +11,13 @@
       </div>
 
       <!-- Featured Projects Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 px-4 sm:px-0">
         <div
           v-for="project in featuredProjects"
           :key="project.id"
           class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg card-hover group"
         >
-          <div class="relative h-48 overflow-hidden">
+          <div class="relative h-40 sm:h-48 overflow-hidden">
             <img
               :src="project.image"
               :alt="project.title"
@@ -43,7 +43,7 @@
             </div>
           </div>
           
-          <div class="p-6">
+          <div class="p-4 sm:p-6">
             <h3 class="text-xl font-bold mb-3">{{ project.title }}</h3>
             <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
               {{ project.description }}
@@ -51,17 +51,17 @@
             
             <div class="flex flex-wrap gap-2 mb-4">
               <span
-                v-for="tech in project.technologies.slice(0, 3)"
+                v-for="tech in project.technologies.slice(0, 2)"
                 :key="tech"
                 class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 text-xs rounded-full"
               >
                 {{ tech }}
               </span>
               <span
-                v-if="project.technologies.length > 3"
+                v-if="project.technologies.length > 2"
                 class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs rounded-full"
               >
-                +{{ project.technologies.length - 3 }}
+                +{{ project.technologies.length - 2 }}
               </span>
             </div>
             
@@ -91,11 +91,11 @@
           </a>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4 sm:px-0">
           <div
             v-for="repo in githubRepos.slice(0, showAllProjects ? githubRepos.length : 6)"
             :key="repo.id"
-            class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg card-hover"
+            class="bg-white dark:bg-gray-800 rounded-lg p-4 sm:p-6 shadow-lg card-hover"
           >
             <div class="flex items-start justify-between mb-3">
               <h4 class="text-lg font-semibold truncate">{{ repo.name }}</h4>

@@ -16,32 +16,32 @@
     </div>
 
     <div class="container-custom relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <!-- Content -->
-        <div class="text-center lg:text-left">
+        <div class="text-center lg:text-left px-4 sm:px-0">
           <div class="mb-6">
             <p class="text-lg text-primary-600 dark:text-primary-400 font-medium mb-2">
               Hello, I'm
             </p>
-            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4">
               Calson Genesis
             </h1>
-            <div class="text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-6">
+            <div class="text-xl sm:text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-6">
               I'm a <span class="gradient-text font-bold">{{ currentSkill }}</span>
             </div>
           </div>
 
-          <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
-            Passionate Full Stack Developer from Cameroon, creating beautiful and functional 
-            web applications with modern technologies. I love turning ideas into reality through code.
+          <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
+            Passionate Front-End Developer from Cameroon, creating beautiful and functional 
+            web applications with React, Vue.js, TypeScript, and modern technologies. I love turning ideas into reality through clean, efficient code.
           </p>
 
           <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start px-4 sm:px-0">
             <a
               href="#contact"
               @click="handleNavClick('#contact', $event)"
-              class="btn-primary inline-flex items-center justify-center"
+              class="btn-primary inline-flex items-center justify-center text-sm sm:text-base"
             >
               Get In Touch
               <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -51,7 +51,7 @@
             <a
               href="/assets/Calson_Genesis_CV.pdf"
               download
-              class="btn-secondary inline-flex items-center justify-center"
+              class="btn-secondary inline-flex items-center justify-center text-sm sm:text-base"
             >
               <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-4-4m4 4l4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -64,7 +64,7 @@
         <!-- Profile Image -->
         <div class="flex justify-center lg:justify-end">
           <div class="relative">
-            <div class="w-80 h-80 md:w-96 md:h-96 relative">
+            <div class="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 relative">
               <!-- Background decoration -->
               <div class="absolute inset-0 bg-gradient-to-br from-primary-400 to-purple-500 rounded-full transform rotate-6 opacity-20"></div>
               <div class="absolute inset-4 bg-gradient-to-br from-primary-500 to-purple-600 rounded-full transform -rotate-6 opacity-30"></div>
@@ -88,7 +88,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const skills = ['Full Stack Developer', 'Web Developer', 'Freelancer', 'YouTuber', 'Graphic Designer']
+const skills = ['Front-End Developer', 'React Developer', 'Vue.js Developer', 'TypeScript Expert', 'UI/UX Enthusiast']
 const currentSkill = ref(skills[0])
 let skillIndex = 0
 let charIndex = 0

@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="{ 'dark': isDark }">
+  <div id="app" :class="{ 'dark': isDark }" class="transition-colors duration-300">
     <router-view />
   </div>
 </template>

@@ -2,7 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fix for Vue transitions */
+/* Vue transitions and dark mode */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
 .v-enter-active,
 .v-leave-active {
   transition: opacity 0.3s ease;
@@ -16,11 +24,25 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    transition: background-color 0.3s ease;
+  }
+  
+  * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
   
   body {
     @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300;
   }
+}
+
+/* Dark mode improvements */
+.dark {
+  color-scheme: dark;
+}
+
+.dark * {
+  border-color: theme('colors.gray.700');
 }
 
 /* Animation keyframes */

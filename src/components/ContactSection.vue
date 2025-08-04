@@ -13,7 +13,7 @@
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <!-- Contact Information -->
-        <div class="space-y-8">
+        <div class="space-y-8 px-4 sm:px-0">
           <div>
             <h3 class="text-2xl font-bold mb-6">Let's Connect</h3>
             <p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
@@ -74,7 +74,7 @@
         </div>
 
         <!-- Contact Form -->
-        <div>
+        <div class="px-4 sm:px-0">
           <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
             <h3 class="text-2xl font-bold mb-6">Send Me a Message</h3>
             

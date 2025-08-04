@@ -11,11 +11,11 @@
       </div>
 
       <!-- Testimonials Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 px-4 sm:px-0">
         <div
           v-for="testimonial in testimonials"
           :key="testimonial.id"
-          class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg card-hover"
+          class="bg-white dark:bg-gray-800 rounded-xl p-6 sm:p-8 shadow-lg card-hover"
         >
           <!-- Rating Stars -->
           <div class="flex items-center mb-4">
