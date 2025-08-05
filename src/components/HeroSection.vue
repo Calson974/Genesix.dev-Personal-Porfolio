@@ -1,5 +1,5 @@
 <template>
-  <section id="home" class="">
+  <section id="home" class="min-h-screen flex items-center pt-20 pb-16">
     <!-- Particle Background -->
     <div class="absolute inset-0 overflow-hidden">
       <div
@@ -18,26 +18,26 @@
     <div class="container-custom relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <!-- Content -->
-        <div class="text-center lg:text-left">
+        <div class="text-center lg:text-left order-2 lg:order-1">
           <div class="mb-6">
-            <p class="text-lg text-primary-600 dark:text-primary-400 font-medium mb-2">
+            <p class="text-base md:text-lg text-primary-600 dark:text-primary-400 font-medium mb-2">
               Hello, I'm
             </p>
-            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4">
               Calson Genesis
             </h1>
-            <div class="text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-6">
+            <div class="text-xl sm:text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-6">
               I'm a <span class="gradient-text font-bold">{{ currentSkill }}</span>
             </div>
           </div>
 
-          <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
+          <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
             Passionate Front-End Developer from Cameroon, creating beautiful and functional 
             web applications with modern technologies. I love turning ideas into reality through code.
           </p>
 
           <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start px-4 sm:px-0">
             <a
               href="#contact"
               @click="handleNavClick('#contact', $event)"
@@ -62,9 +62,9 @@
         </div>
 
         <!-- Profile Image -->
-        <div class="flex justify-center lg:justify-end">
+        <div class="flex justify-center lg:justify-end order-1 lg:order-2 mb-8 lg:mb-0">
           <div class="relative">
-            <div class="w-80 h-80 md:w-96 md:h-96 relative">
+            <div class="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 relative">
               <!-- Background decoration -->
               <div class="absolute inset-0 bg-gradient-to-br from-primary-400 to-purple-500 rounded-full transform rotate-6 opacity-20"></div>
               <div class="absolute inset-4 bg-gradient-to-br from-primary-500 to-purple-600 rounded-full transform -rotate-6 opacity-30"></div>

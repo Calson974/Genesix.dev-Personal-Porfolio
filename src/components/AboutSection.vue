@@ -12,9 +12,9 @@
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
         <!-- Profile Image -->
-        <div class="flex justify-center lg:justify-start">
+        <div class="flex justify-center lg:justify-start px-4 lg:px-0">
           <div class="relative">
-            <div class="w-80 h-80 md:w-96 md:h-96 relative">
+            <div class="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 relative">
               <div class="absolute inset-0 bg-gradient-to-br from-primary-400 to-purple-500 rounded-2xl transform rotate-6"></div>
               <div class="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
                 <img
@@ -28,7 +28,7 @@
         </div>
 
         <!-- Bio Content -->
-        <div class="space-y-6">
+        <div class="space-y-6 px-4 lg:px-0">
           <h3 class="text-2xl md:text-3xl font-bold mb-6">
             Hi, I'm <span class="gradient-text">Calson Genesis</span>
           </h3>
@@ -76,16 +76,16 @@
           <div
             v-for="tech in techStack"
             :key="tech.name"
-            class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg text-center card-hover"
+            class="bg-white dark:bg-gray-800 rounded-xl p-4 md:p-6 shadow-lg text-center card-hover"
           >
-            <div class="w-12 h-12 mx-auto mb-3 relative">
+            <div class="w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 relative">
               <img
                 :src="tech.icon"
                 :alt="tech.name"
                 class="w-full h-full object-contain"
               />
             </div>
-            <p class="text-sm font-medium">{{ tech.name }}</p>
+            <p class="text-xs md:text-sm font-medium">{{ tech.name }}</p>
           </div>
         </div>
       </div>
