@@ -191,7 +191,6 @@ onMounted(async () => {
             </div>
           </div>
         </div>
-      }
       </div>
 
       <!-- Additional Skills Tags -->
@@ -214,4 +213,3 @@ onMounted(async () => {
     </div>
   </section>
 </template>
-</script>
