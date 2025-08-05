@@ -1,5 +1,5 @@
 <template>
-  <section id="home">
+  <section id="home" class="">
     <!-- Particle Background -->
     <div class="absolute inset-0 overflow-hidden">
       <div
