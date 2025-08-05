@@ -72,7 +72,7 @@
               <!-- Profile image -->
               <div class="relative w-full h-full rounded-full overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800">
                 <img
-                  src="/assets/img/Me-rec-bg.jpg"
+                  src="/assets/img/Me-Square-tx.jpg"
                   alt="Calson Genesis - Front-End Developer"
                   class="w-full h-full object-cover"
                 />
