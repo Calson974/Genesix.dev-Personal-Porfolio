@@ -1,5 +1,5 @@
 <template>
-  <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+  <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-1800">
     <!-- Particle Background -->
     <div class="absolute inset-0 overflow-hidden">
       <div
