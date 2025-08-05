@@ -32,7 +32,7 @@
           </div>
 
           <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
-            Passionate Full Stack Developer from Cameroon, creating beautiful and functional 
+            Passionate Front-End Developer from Cameroon, creating beautiful and functional 
             web applications with modern technologies. I love turning ideas into reality through code.
           </p>
 
