@@ -35,13 +35,13 @@
           
           <div class="space-y-4 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
             <p>
-              I'm a passionate Full Stack Developer from Cameroon with a keen eye for creating 
+              I'm a passionate Front-End Developer from Cameroon with a keen eye for creating 
               beautiful, functional web applications. My journey in tech started with curiosity 
               about how websites work, which led me to dive deep into the world of programming.
             </p>
             
             <p>
-              With expertise in modern web technologies like Vue.js, React, Next.js, and Node.js, 
+              With expertise in modern web technologies like Vue.js, React, and Node.js, 
               I specialize in building scalable applications that provide exceptional user experiences. 
               I believe in writing clean, maintainable code and following best practices.
             </p>
