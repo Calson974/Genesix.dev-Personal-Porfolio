@@ -32,4 +32,3 @@ provide('theme', {
   toggleDark
 })
 </script>
-</template>
