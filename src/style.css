@@ -5,10 +5,23 @@
 /* Ensure dark mode works properly */
 :root {
   color-scheme: light;
+  --bg-primary: #ffffff;
+  --text-primary: #1f2937;
+  --bg-secondary: #f9fafb;
+  --text-secondary: #6b7280;
 }
 
-.dark {
+html.dark {
   color-scheme: dark;
+  --bg-primary: #111827;
+  --text-primary: #f9fafb;
+  --bg-secondary: #1f2937;
+  --text-secondary: #9ca3af;
+}
+
+html.dark body {
+  background-color: #111827;
+  color: #f9fafb;
 }
 
 /* Fix for Vue transitions */
@@ -29,7 +42,9 @@
   }
   
   body {
-    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300;
+    @apply transition-colors duration-300;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
   }
   
   /* Ensure proper mobile viewport */

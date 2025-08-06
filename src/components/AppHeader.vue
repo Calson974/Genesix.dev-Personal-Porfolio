@@ -87,9 +87,13 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 // Get theme from App.vue
-const theme = inject('theme') as { isDark: any, toggleDark: () => void }
-const isDark = theme?.isDark
-const toggleTheme = theme?.toggleDark
+const theme = inject('theme') as { isDark: any, toggleDark: () => void } | undefined
+const isDark = theme?.isDark || ref(false)
+const toggleTheme = () => {
+  if (theme?.toggleDark) {
+    theme.toggleDark()
+  }
+}
 
 const isMobileMenuOpen = ref(false)
 const isScrolled = ref(false)
