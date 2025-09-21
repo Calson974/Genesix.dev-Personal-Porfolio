@@ -14,6 +14,7 @@ if (import.meta.env.DEV) {
 }
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
+)
 ReactDOM.createRoot(document.getElementById('app')!).render(
   <React.StrictMode>
     <HelmetProvider>
