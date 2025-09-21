@@ -4,6 +4,7 @@ import Hero from '../components/sections/Hero'
 import About from '../components/sections/About'
 import Skills from '../components/sections/Skills'
 import FeaturedProjects from '../components/sections/FeaturedProjects'
+import Contact from '../components/sections/Contact'
 import ScrollToTop from '../components/ScrollToTop'
 
 /**
@@ -39,6 +40,7 @@ const Home: React.FC = () => {
         <About />
         <Skills />
         <FeaturedProjects />
+        <Contact />
         <ScrollToTop />
       </div>
     </>
