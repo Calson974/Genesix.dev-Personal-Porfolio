@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [react()],
   resolve: {
     alias: {
       '@': '/src'
@@ -14,8 +14,8 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['vue', 'vue-router'],
-          utils: ['@vueuse/core', '@vueuse/head']
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          utils: ['framer-motion', 'react-helmet-async']
         }
       }
     }
