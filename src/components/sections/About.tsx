@@ -82,7 +82,7 @@ const About: React.FC = () => {
             variants={itemVariants}
             className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
-            Passionate about creating exceptional digital experiences through innovative frontend development
+          Curious About creating exceptional digital experiences through innovative frontend development
           </motion.p>
         </motion.div>
 
