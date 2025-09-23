@@ -18,13 +18,29 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    minify: false
+    minify: false,
+    rollupOptions: {
+      external: ['@hookform/resolvers/yup']
+    }
   },
   optimizeDeps: {
-    exclude: ['@emotion/react', '@emotion/styled'],
-    include: ['react', 'react-dom', 'react-router-dom'],
+    exclude: [
+      '@emotion/react', 
+      '@emotion/styled'
+    ],
+    include: [
+      'react', 
+      'react-dom', 
+      'react-router-dom',
+      '@hookform/resolvers',
+      'yup',
+      'react-helmet-async'
+    ],
     esbuildOptions: {
-      target: 'es2020'
+      target: 'es2020',
+      supported: { 
+        'top-level-await': true 
+      }
     }
   }
 })
