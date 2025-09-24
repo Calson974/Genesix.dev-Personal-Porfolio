@@ -170,7 +170,7 @@ const About: React.FC = () => {
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {highlights.map((highlight, index) => (
+          {highlights.map((highlight) => (
             <motion.div
               key={highlight.title}
               variants={itemVariants}
