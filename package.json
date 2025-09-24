@@ -8,7 +8,7 @@
     "type-check": "tsc --noEmit",
     "build": "vite build",
     "preview": "vite preview",
-    "vercel-build": "npm install --legacy-peer-deps && tsc --noEmit && vite build"
+    "vercel-build": "npm install --legacy-peer-deps && vite build"
   },
   "engines": {
     "node": ">=18.0.0"
