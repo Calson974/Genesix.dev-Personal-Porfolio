@@ -22,10 +22,5 @@
     }
   ],
   "buildCommand": "npm run vercel-build",
-  "outputDirectory": "dist",
-  "functions": {
-    "src/pages/api/**/*.ts": {
-      "runtime": "nodejs18.x"
-    }
-  }
+  "outputDirectory": "dist"
 }
