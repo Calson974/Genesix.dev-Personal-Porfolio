@@ -17,7 +17,7 @@ const ProjectsSection: React.FC = () => {
       id: 1,
       title: "Personal Portfolio",
       description: "A modern, responsive portfolio website built with React and TypeScript",
-      image: "/assets/img/project1.jpg",
+      image: "/img/Me-Square-transparent2.png",
       technologies: ["React", "TypeScript", "Tailwind CSS"],
       liveUrl: "https://genesixdev.vercel.app/",
       githubUrl: "https://github.com/Calson974/Genesix.dev-Personal-Porfolio"

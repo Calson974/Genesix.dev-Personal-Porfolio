@@ -276,7 +276,7 @@ const Hero: React.FC = () => {
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               >
                 <img
-                  src="/assets/img/Me-Square-transparent2.png"
+                  src="/img/Me-Square-transparent2.png"
                   alt="Calson Genesis - Frontend Developer"
                   className="w-full h-full object-cover"
                 />

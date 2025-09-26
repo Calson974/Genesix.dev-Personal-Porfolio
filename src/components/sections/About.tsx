@@ -130,7 +130,7 @@ const About: React.FC = () => {
                 {/* Image container */}
                 <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 dark:border-gray-800/20 backdrop-blur-sm transform rotate-3">
                   <img
-                    src="/assets/img/Me-Rec-blur.jpg"
+                    src="/img/Me-Rec-blur.jpg"
                     alt="Calson Genesis - About"
                     className="w-full h-full object-cover"
                   />

@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
-import { ExternalLink, Github, Search, Filter } from 'lucide-react'
+import { ExternalLink, Github, Search } from 'lucide-react'
 
 /**
  * Projects Page Component
@@ -21,7 +21,7 @@ const Projects: React.FC = () => {
       id: 1,
       title: 'E-commerce Platform',
       description: 'Modern e-commerce platform with React, TypeScript, and Stripe integration',
-      image: '/assets/img/Screenshot 2025-05-25 140623.jpg',
+      image: '/img/Screenshot 2025-05-25 140623.jpg',
       technologies: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Stripe'],
       category: 'web-app',
       githubUrl: 'https://github.com/Calson974/NOVAShop',
@@ -32,7 +32,7 @@ const Projects: React.FC = () => {
       id: 2,
       title: 'Memory Card Game',
       description: 'Interactive memory game with smooth animations and score tracking',
-      image: '/assets/img/Screenshot 2025-05-14 022208.jpg',
+      image: '/img/Screenshot 2025-05-14 022208.jpg',
       technologies: ['HTML5', 'CSS3', 'JavaScript', 'Local Storage'],
       category: 'game',
       githubUrl: 'https://github.com/Calson974/Memory-Magic-Memory-Game',
@@ -43,7 +43,7 @@ const Projects: React.FC = () => {
       id: 3,
       title: 'Task Management App',
       description: 'Clean and intuitive to-do application with local storage persistence',
-      image: '/assets/img/Screenshot 2025-05-17 140117.jpg',
+      image: '/img/Screenshot 2025-05-17 140117.jpg',
       technologies: ['HTML5', 'CSS3', 'JavaScript', 'Local Storage'],
       category: 'web-app',
       githubUrl: 'https://github.com/Calson974/List-it-Yourself---To-do-App',
