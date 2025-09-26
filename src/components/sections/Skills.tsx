@@ -46,7 +46,7 @@ const Skills: React.FC = () => {
         { name: 'Node.js', level: 70, color: 'from-green-600 to-green-800' },
         { name: 'Express.js', level: 65, color: 'from-gray-600 to-gray-800' },
         { name: 'PostgreSQL', level: 60, color: 'from-blue-700 to-indigo-700' },
-        { name: 'MongoDB', level: 55, color: 'from-green-700 to-green-900' },
+        { name: 'Supabase', level: 55, color: 'from-green-700 to-green-900' },
         { name: 'REST APIs', level: 75, color: 'from-indigo-500 to-purple-500' },
         { name: 'Firebase', level: 65, color: 'from-yellow-600 to-orange-600' }
       ]
@@ -54,8 +54,7 @@ const Skills: React.FC = () => {
   ]
 
   const additionalSkills = [
-    'Framer Motion', 'React Hook Form', 'Zustand', 'React Query', 'Styled Components',
-    'Jest', 'Cypress', 'Webpack', 'ESLint', 'Prettier', 'Vercel', 'Netlify'
+    'React Query','Canva', 'Vercel', 'Netlify'
   ]
 
   const containerVariants = {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { ExternalLink, Github, Filter, Search } from 'lucide-react'
+import { ExternalLink, Github, Search } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 /**
@@ -29,7 +29,7 @@ const FeaturedProjects: React.FC = () => {
       description: 'Modern e-commerce platform with React, TypeScript, and Stripe integration',
       longDescription: 'A comprehensive e-commerce solution featuring product catalog, shopping cart, secure checkout, user authentication, and admin dashboard.',
       image: '/assets/img/Screenshot 2025-05-25 140623.jpg',
-      technologies: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Stripe'],
+      technologies: ['React', 'TypeScript', 'Node.js', 'Tailwind CSS'],
       category: 'web-app',
       githubUrl: 'https://github.com/Calson974/NOVAShop',
       liveUrl: 'https://nova-shop-git-main-calson974s-projects.vercel.app',

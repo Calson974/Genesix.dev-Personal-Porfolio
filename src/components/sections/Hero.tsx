@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Animated Background Gradients */}
+      {/* Animated Background Gradients - Original Simple Version */}
       <div className="absolute inset-0 -z-10">
         <motion.div
           className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-500/30 to-purple-600/30 rounded-full blur-3xl"
@@ -186,24 +186,87 @@ const Hero: React.FC = () => {
 
           {/* Profile Image */}
           <motion.div
-            className="flex justify-center lg:justify-end order-1 lg:order-2 relative"
+            className="flex justify-center lg:justify-end order-1 lg:order-2 relative lg:mr-8"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             <div className="relative group cursor-pointer" onClick={handleImageClick}>
-              {/* Animated background rings */}
+              {/* Enhanced Animated Background Rings - Only Innermost Has Gradient */}
+              {/* Ring 1 - Innermost with transitioning gradient */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-20"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                style={{ scale: 1.1 }}
+                className="absolute inset-0 rounded-full shadow-2xl"
+                style={{
+                  background: 'conic-gradient(from 0deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #3b82f6)',
+                  scale: 1.15,
+                  filter: 'blur(1px)',
+                  boxShadow: '0 0 50px rgba(59, 130, 246, 0.6), 0 0 100px rgba(139, 92, 246, 0.4), 0 0 150px rgba(236, 72, 153, 0.3)',
+                }}
+                animate={{
+                  rotate: 360,
+                  scale: [1.15, 1.25, 1.15],
+                }}
+                transition={{
+                  rotate: { duration: 8, repeat: Infinity, ease: 'linear' },
+                  scale: { duration: 3, repeat: Infinity, ease: 'linear' },
+                }}
               />
+
+              {/* Ring 2 - Solid color ring */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-pink-500 to-red-600 rounded-full opacity-20"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-                style={{ scale: 1.2 }}
+                className="absolute inset-0 rounded-full shadow-xl"
+                style={{
+                  background: 'rgba(59, 130, 246, 0.3)',
+                  scale: 1.3,
+                  filter: 'blur(0.5px)',
+                  boxShadow: '0 0 30px rgba(6, 182, 212, 0.5), 0 0 60px rgba(59, 130, 246, 0.3)',
+                }}
+                animate={{
+                  rotate: -360,
+                  scale: [1.3, 1.4, 1.3],
+                }}
+                transition={{
+                  rotate: { duration: 12, repeat: Infinity, ease: 'linear' },
+                  scale: { duration: 4, repeat: Infinity, ease: 'linear' },
+                }}
+              />
+
+              {/* Ring 3 - Radial gradient ring */}
+              <motion.div
+                className="absolute inset-0 rounded-full"
+                style={{
+                  background: 'radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(139, 92, 246, 0.2) 50%, transparent 70%)',
+                  scale: 1.45,
+                  filter: 'blur(2px)',
+                }}
+                animate={{
+                  rotate: 360,
+                  scale: [1.45, 1.55, 1.45],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{
+                  rotate: { duration: 15, repeat: Infinity, ease: 'linear' },
+                  scale: { duration: 5, repeat: Infinity, ease: 'linear' },
+                  opacity: { duration: 2, repeat: Infinity, ease: 'linear' },
+                }}
+              />
+
+              {/* Ring 4 - Subtle outer glow ring */}
+              <motion.div
+                className="absolute inset-0 rounded-full"
+                style={{
+                  background: 'rgba(59, 130, 246, 0.1)',
+                  scale: 1.6,
+                  filter: 'blur(3px)',
+                }}
+                animate={{
+                  rotate: -360,
+                  opacity: [0.1, 0.4, 0.1],
+                }}
+                transition={{
+                  rotate: { duration: 20, repeat: Infinity, ease: 'linear' },
+                  opacity: { duration: 3, repeat: Infinity, ease: 'linear' },
+                }}
               />
 
               {/* Profile image container */}
@@ -213,7 +276,7 @@ const Hero: React.FC = () => {
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               >
                 <img
-                  src="/assets/img/Me-rec-bg.jpg"
+                  src="/assets/img/Me-Square-transparent2.png"
                   alt="Calson Genesis - Frontend Developer"
                   className="w-full h-full object-cover"
                 />

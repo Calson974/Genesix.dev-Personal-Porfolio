@@ -1,17 +1,17 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Mail, MapPin, Phone, Send, Check, X, MessageSquare, Twitter, Linkedin, Github, Instagram } from 'lucide-react';
+import { Mail, MapPin, Send, MessageSquare, Facebook, Linkedin, Github, MessageCircle } from 'lucide-react';
 
 // Floating elements component
 const FloatingElements = () => {
   const elements = [
     { icon: <MessageSquare className="w-5 h-5" />, color: 'from-blue-500 to-cyan-400' },
-    { icon: <Twitter className="w-5 h-5" />, color: 'from-sky-400 to-blue-500' },
+    { icon: <Facebook className="w-5 h-5" />, color: 'from-blue-600 to-blue-400' },
     { icon: <Mail className="w-5 h-5" />, color: 'from-rose-500 to-pink-500' },
     { icon: <Linkedin className="w-5 h-5" />, color: 'from-blue-600 to-blue-400' },
     { icon: <Github className="w-5 h-5" />, color: 'from-gray-700 to-gray-500' },
-    { icon: <Instagram className="w-5 h-5" />, color: 'from-purple-600 to-pink-500' },
+    { icon: <MessageCircle className="w-5 h-5" />, color: 'from-green-500 to-green-400' },
   ];
 
   return (
@@ -52,7 +52,7 @@ const FloatingElements = () => {
 
 /**
  * Contact Section Component
- * 
+ *
  * Features:
  * - Animated contact form with validation
  * - Interactive contact information cards
@@ -73,7 +73,6 @@ const Contact: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'form' | 'social'>('form');
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const formRef = useRef<HTMLFormElement>(null);
-  const [isHovered, setIsHovered] = useState<number | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [cursorVariant, setCursorVariant] = useState('default');
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -144,13 +143,13 @@ const Contact: React.FC = () => {
       await new Promise(resolve => setTimeout(resolve, 1000));
       setFormState('success');
       setFormData({ name: '', email: '', message: '' });
-      
+
       // Reset form state after 3 seconds
       setTimeout(() => setFormState('idle'), 3000);
     } catch (error) {
       console.error('Error submitting form:', error);
       setFormState('error');
-      
+
       // Reset error state after 3 seconds
       setTimeout(() => setFormState('idle'), 3000);
     }
@@ -166,12 +165,12 @@ const Contact: React.FC = () => {
       hover: 'hover:shadow-lg hover:shadow-rose-500/20'
     },
     {
-      icon: Twitter,
-      title: 'Twitter',
-      value: '@yourhandle',
-      href: 'https://twitter.com/yourhandle',
-      color: 'bg-gradient-to-br from-sky-400 to-blue-500',
-      hover: 'hover:shadow-lg hover:shadow-blue-500/20'
+      icon: Facebook,
+      title: 'Facebook',
+      value: '@yourprofile',
+      href: 'https://facebook.com/yourprofile',
+      color: 'bg-gradient-to-br from-blue-600 to-blue-400',
+      hover: 'hover:shadow-lg hover:shadow-blue-600/20'
     },
     {
       icon: Linkedin,
@@ -190,12 +189,12 @@ const Contact: React.FC = () => {
       hover: 'hover:shadow-lg hover:shadow-gray-500/20'
     },
     {
-      icon: Instagram,
-      title: 'Instagram',
-      value: '@yourhandle',
-      href: 'https://instagram.com/yourhandle',
-      color: 'bg-gradient-to-br from-purple-600 via-pink-600 to-yellow-400',
-      hover: 'hover:shadow-lg hover:shadow-purple-500/20'
+      icon: MessageCircle,
+      title: 'WhatsApp',
+      value: '+1234567890',
+      href: 'https://wa.me/1234567890',
+      color: 'bg-gradient-to-br from-green-500 to-green-400',
+      hover: 'hover:shadow-lg hover:shadow-green-500/20'
     },
     {
       icon: MapPin,
@@ -208,15 +207,15 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section 
-      id="contact" 
-      className="relative py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden"
+    <section
+      id="contact"
+      className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-900 dark:text-white overflow-hidden"
     >
       <FloatingElements />
-      
+
       {/* Animated cursor effect */}
       <motion.div
-        className="fixed w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 pointer-events-none z-50"
+        className="fixed w-8 h-8 rounded-full bg-gray-900/10 dark:bg-white/10 backdrop-blur-sm border border-gray-900/20 dark:border-white/20 pointer-events-none z-50"
         variants={cursorVariants}
         animate={cursorVariant}
         ref={cursorRef}
@@ -230,15 +229,15 @@ const Contact: React.FC = () => {
           variants={containerVariants}
           className="text-center mb-16"
         >
-          <motion.h2 
+          <motion.h2
             variants={itemVariants}
             className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600"
           >
             Let's Connect
           </motion.h2>
-          <motion.p 
+          <motion.p
             variants={itemVariants}
-            className="text-xl text-gray-300 max-w-2xl mx-auto"
+            className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
           >
             Have a project in mind or just want to say hi? I'd love to hear from you!
           </motion.p>
@@ -246,13 +245,13 @@ const Contact: React.FC = () => {
 
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12">
-          <div className="inline-flex p-1 bg-gray-800/50 backdrop-blur-sm rounded-full border border-gray-700">
+          <div className="inline-flex p-1 bg-gray-200/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-gray-300 dark:border-gray-700">
             <button
               onClick={() => setActiveTab('form')}
               className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                activeTab === 'form' 
-                  ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/20' 
-                  : 'text-gray-400 hover:text-white'
+                activeTab === 'form'
+                  ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/20'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
               Send a Message
@@ -260,9 +259,9 @@ const Contact: React.FC = () => {
             <button
               onClick={() => setActiveTab('social')}
               className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                activeTab === 'social' 
-                  ? 'bg-gradient-to-r from-purple-500 to-pink-600 text-white shadow-lg shadow-purple-500/20' 
-                  : 'text-gray-400 hover:text-white'
+                activeTab === 'social'
+                  ? 'bg-gradient-to-r from-purple-500 to-pink-600 text-white shadow-lg shadow-purple-500/20'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
               Find Me Online
@@ -278,14 +277,14 @@ const Contact: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="max-w-2xl mx-auto bg-gray-800/30 backdrop-blur-lg rounded-2xl border border-gray-700/50 p-8 shadow-2xl"
+              className="max-w-2xl mx-auto bg-white/80 dark:bg-gray-800/30 backdrop-blur-lg rounded-2xl border border-gray-200 dark:border-gray-700/50 p-8 shadow-2xl"
             >
               <h3 className="text-2xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
                 Drop Me a Line
               </h3>
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Your Name
                   </label>
                   <div className="relative">
@@ -297,7 +296,7 @@ const Contact: React.FC = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="relative w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 backdrop-blur-sm"
+                      className="relative w-full px-4 py-3 bg-white/80 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 backdrop-blur-sm"
                       placeholder="John Doe"
                       onMouseEnter={() => setCursorVariant('hover')}
                       onMouseLeave={() => setCursorVariant('default')}
@@ -306,7 +305,7 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Email Address
                   </label>
                   <div className="relative">
@@ -318,7 +317,7 @@ const Contact: React.FC = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="relative w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 backdrop-blur-sm"
+                      className="relative w-full px-4 py-3 bg-white/80 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 backdrop-blur-sm"
                       placeholder="john@example.com"
                       onMouseEnter={() => setCursorVariant('hover')}
                       onMouseLeave={() => setCursorVariant('default')}
@@ -327,7 +326,7 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Your Message
                   </label>
                   <div className="relative">
@@ -339,7 +338,7 @@ const Contact: React.FC = () => {
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      className="relative w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all duration-200 resize-none backdrop-blur-sm"
+                      className="relative w-full px-4 py-3 bg-white/80 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all duration-200 resize-none backdrop-blur-sm"
                       placeholder="Hello! I'd love to talk about..."
                       onMouseEnter={() => setCursorVariant('hover')}
                       onMouseLeave={() => setCursorVariant('default')}
@@ -396,11 +395,9 @@ const Contact: React.FC = () => {
                     rel="noopener noreferrer"
                     className={`relative p-6 rounded-2xl transition-all duration-300 overflow-hidden group ${item.hover}`}
                     onMouseEnter={() => {
-                      setIsHovered(index);
                       setCursorVariant('hover');
                     }}
                     onMouseLeave={() => {
-                      setIsHovered(null);
                       setCursorVariant('default');
                     }}
                     initial={{ opacity: 0, y: 20 }}
@@ -409,11 +406,11 @@ const Contact: React.FC = () => {
                   >
                     <div className={`absolute inset-0 ${item.color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}></div>
                     <div className="relative z-10">
-                      <div className={`w-12 h-12 rounded-xl ${item.color} flex items-center justify-center text-white mb-4`}>
+                      <div className={`w-12 h-12 rounded-xl ${item.color} flex items-center justify-center text-white mb-4 shadow-lg`}>
                         <item.icon className="w-6 h-6" />
                       </div>
                       <h3 className="text-lg font-semibold mb-1">{item.title}</h3>
-                      <p className="text-gray-300 text-sm">{item.value}</p>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm">{item.value}</p>
                       <div className="absolute -bottom-4 -right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div className={`w-16 h-16 rounded-full ${item.color} opacity-10`}></div>
                       </div>
