@@ -10,6 +10,8 @@ import './index.css'
 if (import.meta.env.DEV) {
   import('./utils/performance').then(({ initPerformanceMonitoring }) => {
     initPerformanceMonitoring()
+  }).catch(err => {
+    console.warn('Performance monitoring failed to load:', err)
   })
 }
 

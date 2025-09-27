@@ -19,9 +19,6 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: false,
     minify: 'esbuild',
-    rollupOptions: {
-      external: ['@hookform/resolvers/yup']
-    }
   },
   optimizeDeps: {
     include: [
