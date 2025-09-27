@@ -185,6 +185,13 @@ html.dark {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
+  /* Disable framer-motion animations for reduced motion users */
+  [data-framer-appear-id],
+  [data-framer-component-type] {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /* Custom selection colors */
@@ -201,14 +208,103 @@ html.dark {
   @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded;
 }
 
-/* Glass morphism utility */
-.glass {
-  background: rgba(255, 255, 255, 0.1);
+/* Sophisticated glass morphism and profile image enhancements */
+.glass-morphism {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.dark .glass {
-  background: rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.profile-glow {
+  box-shadow:
+    0 0 20px rgba(59, 130, 246, 0.3),
+    0 0 40px rgba(139, 92, 246, 0.2),
+    0 0 60px rgba(236, 72, 153, 0.1),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.animated-gradient {
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Performance optimizations for low-end devices */
+@media (max-width: 768px) {
+  .glass-morphism {
+    backdrop-filter: blur(5px);
+  }
+
+  .profile-glow {
+    box-shadow:
+      0 0 15px rgba(59, 130, 246, 0.2),
+      0 0 30px rgba(139, 92, 246, 0.15),
+      inset 0 0 15px rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* Cyberpunk/Futuristic Theme Enhancements */
+.cyberpunk-grid {
+  background-image:
+    linear-gradient(45deg, transparent 49%, rgba(0, 255, 255, 0.1) 50%, transparent 51%),
+    linear-gradient(-45deg, transparent 49%, rgba(255, 0, 255, 0.1) 50%, transparent 51%);
+  background-size: 20px 20px, 20px 20px;
+}
+
+.cyberpunk-hex {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.cyberpunk-glow {
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.5),
+    0 0 40px rgba(255, 0, 255, 0.3),
+    0 0 60px rgba(0, 255, 255, 0.2);
+}
+
+.cyberpunk-scanlines {
+  background:
+    linear-gradient(transparent 50%, rgba(0, 255, 255, 0.1) 51%, rgba(0, 255, 255, 0.1) 52%, transparent 53%),
+    linear-gradient(90deg, transparent 50%, rgba(255, 0, 255, 0.1) 51%, rgba(255, 0, 255, 0.1) 52%, transparent 53%);
+  background-size: 100% 4px, 4px 100%;
+}
+
+.cyberpunk-data-point {
+  background: rgba(0, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+.cyberpunk-data-point-alt {
+  background: rgba(255, 0, 255, 0.9);
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+}
+
+.holographic-overlay {
+  background:
+    linear-gradient(45deg, transparent 0%, rgba(0, 255, 255, 0.1) 25%, transparent 50%, rgba(255, 0, 255, 0.1) 75%, transparent 100%),
+    linear-gradient(-45deg, transparent 0%, rgba(255, 0, 255, 0.1) 25%, transparent 50%, rgba(0, 255, 255, 0.1) 75%, transparent 100%);
+  background-size: 200% 200%;
+}
+
+/* Performance optimizations for cyberpunk effects */
+@media (max-width: 768px) {
+  .cyberpunk-grid {
+    background-size: 10px 10px, 10px 10px;
+  }
+
+  .cyberpunk-glow {
+    box-shadow:
+      0 0 15px rgba(0, 255, 255, 0.3),
+      0 0 30px rgba(255, 0, 255, 0.2);
+  }
+
+  .cyberpunk-scanlines {
+    background-size: 100% 2px, 2px 100%;
+  }
 }

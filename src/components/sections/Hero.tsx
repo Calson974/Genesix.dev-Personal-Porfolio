@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Download, Mail, Github, Linkedin, Sparkles } from 'lucide-react'
+import { Download, Mail, Github, Linkedin } from 'lucide-react'
 import { useScroll } from '../../contexts/ScrollContext'
 
 /**
@@ -16,7 +16,10 @@ import { useScroll } from '../../contexts/ScrollContext'
 const Hero: React.FC = () => {
   const { scrollToSection } = useScroll()
   const [showSparkles, setShowSparkles] = useState(false)
-  
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
   const skills = ['Frontend Developer', 'React Specialist', 'UI/UX Enthusiast', 'Problem Solver']
   const [currentSkill, setCurrentSkill] = React.useState(0)
 
@@ -34,30 +37,40 @@ const Hero: React.FC = () => {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Animated Background Gradients - Original Simple Version */}
+      {/* Enhanced Background - Subtle animated gradients for elegance */}
       <div className="absolute inset-0 -z-10">
         <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-500/30 to-purple-600/30 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-500/25 to-purple-600/25 rounded-full blur-3xl"
+          animate={prefersReducedMotion ? {} : {
+            scale: [1, 1.1, 1],
+            opacity: [0.25, 0.35, 0.25],
           }}
           transition={{
-            duration: 20,
+            duration: 12,
             repeat: Infinity,
-            ease: 'linear'
+            ease: 'easeInOut'
+          }}
+          style={{
+            willChange: 'transform, opacity',
+            backfaceVisibility: 'hidden',
+            transform: 'translate3d(0, 0, 0)'
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-pink-500/30 to-red-600/30 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            rotate: [360, 180, 0],
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-pink-500/25 to-red-600/25 rounded-full blur-3xl"
+          animate={prefersReducedMotion ? {} : {
+            scale: [1.1, 1, 1.1],
+            opacity: [0.25, 0.4, 0.25],
           }}
           transition={{
-            duration: 25,
+            duration: 15,
             repeat: Infinity,
-            ease: 'linear'
+            ease: 'easeInOut'
+          }}
+          style={{
+            willChange: 'transform, opacity',
+            backfaceVisibility: 'hidden',
+            transform: 'translate3d(0, 0, 0)'
           }}
         />
       </div>
@@ -192,140 +205,203 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             <div className="relative group cursor-pointer" onClick={handleImageClick}>
-              {/* Enhanced Animated Background Rings - Only Innermost Has Gradient */}
-              {/* Ring 1 - Innermost with transitioning gradient */}
+              {/* Organic Nature Frame - Flowing petal design */}
+
+              {/* Main Organic Ring - Flowing petal shapes */}
               <motion.div
-                className="absolute inset-0 rounded-full shadow-2xl"
+                className="absolute inset-0 rounded-full"
                 style={{
-                  background: 'conic-gradient(from 0deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #3b82f6)',
-                  scale: 1.15,
+                  background: `
+                    radial-gradient(ellipse 80% 20% at 10% 20%, rgba(34, 197, 94, 0.3) 0%, transparent 50%),
+                    radial-gradient(ellipse 80% 20% at 90% 30%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+                    radial-gradient(ellipse 80% 20% at 20% 80%, rgba(168, 85, 247, 0.3) 0%, transparent 50%),
+                    radial-gradient(ellipse 80% 20% at 80% 70%, rgba(251, 191, 36, 0.3) 0%, transparent 50%),
+                    radial-gradient(ellipse 80% 20% at 50% 10%, rgba(239, 68, 68, 0.3) 0%, transparent 50%),
+                    radial-gradient(ellipse 80% 20% at 50% 90%, rgba(16, 185, 129, 0.3) 0%, transparent 50%)
+                  `,
+                  scale: 1.25,
                   filter: 'blur(1px)',
-                  boxShadow: '0 0 50px rgba(59, 130, 246, 0.6), 0 0 100px rgba(139, 92, 246, 0.4), 0 0 150px rgba(236, 72, 153, 0.3)',
+                  willChange: 'transform',
+                  backfaceVisibility: 'hidden',
+                  transform: 'translate3d(0, 0, 0)'
                 }}
-                animate={{
+                animate={prefersReducedMotion ? {} : {
+                  scale: [1.25, 1.3, 1.25],
+                  rotate: [0, 5, -5, 0],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: 'easeInOut'
+                }}
+              />
+
+              {/* Flowing Vine Pattern */}
+              <motion.div
+                className="absolute inset-0 rounded-full overflow-hidden"
+                style={{
+                  background: `
+                    conic-gradient(from 0deg,
+                      transparent 0deg, rgba(34, 197, 94, 0.4) 60deg, transparent 120deg,
+                      transparent 120deg, rgba(59, 130, 246, 0.4) 180deg, transparent 240deg,
+                      transparent 240deg, rgba(168, 85, 247, 0.4) 300deg, transparent 360deg
+                    )
+                  `,
+                  scale: 1.15,
+                  willChange: 'transform',
+                  backfaceVisibility: 'hidden',
+                  transform: 'translate3d(0, 0, 0)'
+                }}
+                animate={prefersReducedMotion ? {} : {
                   rotate: 360,
-                  scale: [1.15, 1.25, 1.15],
-                }}
-                transition={{
-                  rotate: { duration: 8, repeat: Infinity, ease: 'linear' },
-                  scale: { duration: 3, repeat: Infinity, ease: 'linear' },
-                }}
-              />
-
-              {/* Ring 2 - Solid color ring */}
-              <motion.div
-                className="absolute inset-0 rounded-full shadow-xl"
-                style={{
-                  background: 'rgba(59, 130, 246, 0.3)',
-                  scale: 1.3,
-                  filter: 'blur(0.5px)',
-                  boxShadow: '0 0 30px rgba(6, 182, 212, 0.5), 0 0 60px rgba(59, 130, 246, 0.3)',
-                }}
-                animate={{
-                  rotate: -360,
-                  scale: [1.3, 1.4, 1.3],
-                }}
-                transition={{
-                  rotate: { duration: 12, repeat: Infinity, ease: 'linear' },
-                  scale: { duration: 4, repeat: Infinity, ease: 'linear' },
-                }}
-              />
-
-              {/* Ring 3 - Radial gradient ring */}
-              <motion.div
-                className="absolute inset-0 rounded-full"
-                style={{
-                  background: 'radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, rgba(139, 92, 246, 0.2) 50%, transparent 70%)',
-                  scale: 1.45,
-                  filter: 'blur(2px)',
-                }}
-                animate={{
-                  rotate: 360,
-                  scale: [1.45, 1.55, 1.45],
-                  opacity: [0.3, 0.6, 0.3],
-                }}
-                transition={{
-                  rotate: { duration: 15, repeat: Infinity, ease: 'linear' },
-                  scale: { duration: 5, repeat: Infinity, ease: 'linear' },
-                  opacity: { duration: 2, repeat: Infinity, ease: 'linear' },
-                }}
-              />
-
-              {/* Ring 4 - Subtle outer glow ring */}
-              <motion.div
-                className="absolute inset-0 rounded-full"
-                style={{
-                  background: 'rgba(59, 130, 246, 0.1)',
-                  scale: 1.6,
-                  filter: 'blur(3px)',
-                }}
-                animate={{
-                  rotate: -360,
-                  opacity: [0.1, 0.4, 0.1],
                 }}
                 transition={{
                   rotate: { duration: 20, repeat: Infinity, ease: 'linear' },
-                  opacity: { duration: 3, repeat: Infinity, ease: 'linear' },
                 }}
               />
 
-              {/* Profile image container */}
+              {/* Organic Leaf Motifs */}
               <motion.div
-                className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white/20 dark:border-gray-800/20 backdrop-blur-sm"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                className="absolute inset-0 rounded-full"
+                style={{
+                  background: `
+                    radial-gradient(ellipse 40% 80% at 15% 25%, rgba(34, 197, 94, 0.2) 0%, transparent 70%),
+                    radial-gradient(ellipse 40% 80% at 85% 35%, rgba(59, 130, 246, 0.2) 0%, transparent 70%),
+                    radial-gradient(ellipse 40% 80% at 25% 75%, rgba(168, 85, 247, 0.2) 0%, transparent 70%),
+                    radial-gradient(ellipse 40% 80% at 75% 65%, rgba(251, 191, 36, 0.2) 0%, transparent 70%)
+                  `,
+                  scale: 1.35,
+                  willChange: 'transform',
+                  backfaceVisibility: 'hidden',
+                  transform: 'translate3d(0, 0, 0)'
+                }}
+                animate={prefersReducedMotion ? {} : {
+                  scale: [1.35, 1.4, 1.35],
+                  rotate: [0, -3, 3, 0],
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: 'easeInOut'
+                }}
+              />
+
+              {/* Profile image container - Natural wooden frame aesthetic */}
+              <motion.div
+                className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-amber-200/40"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(253, 230, 138, 0.2) 100%)',
+                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
+                  willChange: 'transform',
+                  backfaceVisibility: 'hidden'
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  rotateY: 2,
+                  boxShadow: '0 25px 50px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4)'
+                }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 300,
+                  damping: 25,
+                  boxShadow: { duration: 0.3 }
+                }}
               >
                 <img
                   src="/img/Me-Square-transparent2.png"
                   alt="Calson Genesis - Frontend Developer"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                {/* Natural light overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-green-500/10 via-transparent to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </motion.div>
 
-              {/* Sparkles effect */}
+              {/* Floating Nature Elements */}
               {showSparkles && (
                 <div className="absolute inset-0 pointer-events-none">
-                  {[...Array(12)].map((_, i) => (
+                  {[...Array(6)].map((_, i) => (
                     <motion.div
                       key={i}
                       className="absolute"
                       style={{
-                        left: `${Math.random() * 100}%`,
-                        top: `${Math.random() * 100}%`,
+                        left: `${30 + (i * 12)}%`,
+                        top: `${20 + (i * 8)}%`,
+                        willChange: 'transform',
+                        backfaceVisibility: 'hidden'
                       }}
-                      initial={{ scale: 0, rotate: 0 }}
-                      animate={{ 
-                        scale: [0, 1, 0], 
+                      initial={{ scale: 0, rotate: 0, opacity: 0 }}
+                      animate={{
+                        scale: [0, 1.2, 0],
                         rotate: [0, 180, 360],
-                        y: [0, -50, -100]
+                        opacity: [0, 0.8, 0],
+                        y: [0, -25, -50]
                       }}
-                      transition={{ 
-                        duration: 2, 
-                        delay: i * 0.1,
+                      transition={{
+                        duration: 3,
+                        delay: i * 0.15,
                         ease: 'easeOut'
                       }}
                     >
-                      <Sparkles className="w-6 h-6 text-yellow-400" />
+                      <div
+                        className="w-4 h-4 rounded-full"
+                        style={{
+                          background: `
+                            radial-gradient(circle at 30% 30%,
+                            ${i % 3 === 0 ? 'rgba(34, 197, 94, 0.9)' :
+                              i % 3 === 1 ? 'rgba(59, 130, 246, 0.9)' :
+                              'rgba(168, 85, 247, 0.9)'} 0%,
+                            ${i % 3 === 0 ? 'rgba(22, 163, 74, 0.7)' :
+                              i % 3 === 1 ? 'rgba(37, 99, 235, 0.7)' :
+                              'rgba(139, 69, 219, 0.7)'} 100%
+                          )`,
+                          boxShadow: `0 0 8px ${i % 3 === 0 ? 'rgba(34, 197, 94, 0.6)' :
+                            i % 3 === 1 ? 'rgba(59, 130, 246, 0.6)' :
+                            'rgba(168, 85, 247, 0.6)'}`
+                        }}
+                      />
                     </motion.div>
                   ))}
                 </div>
               )}
-            </div>
 
-            {/* Floating elements */}
-            <motion.div
-              className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full"
-              animate={{ y: [-10, 10, -10] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-            />
-            <motion.div
-              className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-br from-green-400 to-blue-500 rounded-full"
-              animate={{ y: [10, -10, 10] }}
-              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-            />
+              {/* Gentle Floating Leaves */}
+              <motion.div
+                className="absolute -top-3 -right-3 w-5 h-8 bg-gradient-to-br from-green-400 to-green-600 rounded-full transform rotate-45"
+                style={{
+                  clipPath: 'ellipse(50% 80% at 50% 20%)',
+                  willChange: 'transform',
+                  backfaceVisibility: 'hidden'
+                }}
+                animate={prefersReducedMotion ? {} : {
+                  y: [-6, 6, -6],
+                  rotate: [45, 50, 45],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: 'easeInOut'
+                }}
+              />
+
+              <motion.div
+                className="absolute -bottom-3 -left-3 w-4 h-6 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full transform -rotate-45"
+                style={{
+                  clipPath: 'ellipse(50% 80% at 50% 20%)',
+                  willChange: 'transform',
+                  backfaceVisibility: 'hidden'
+                }}
+                animate={prefersReducedMotion ? {} : {
+                  y: [6, -6, 6],
+                  rotate: [-45, -40, -45],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: 'easeInOut'
+                }}
+              />
+            </div>
           </motion.div>
         </div>
       </div>

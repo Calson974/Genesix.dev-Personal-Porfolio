@@ -159,47 +159,47 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       title: 'Email Me',
-      value: 'contact@example.com',
-      href: 'mailto:contact@example.com',
+      value: 'cooljimmy974@gmail.com',
+      href: 'mailto:cooljimmy974@gmail.com',
       color: 'bg-gradient-to-br from-rose-500 to-pink-500',
       hover: 'hover:shadow-lg hover:shadow-rose-500/20'
     },
     {
       icon: Facebook,
       title: 'Facebook',
-      value: '@yourprofile',
-      href: 'https://facebook.com/yourprofile',
+      value: '@Tengu Calson',
+      href: 'https://facebook.com/17G5dedvS5/?mibextid=LQQJ4d',
       color: 'bg-gradient-to-br from-blue-600 to-blue-400',
       hover: 'hover:shadow-lg hover:shadow-blue-600/20'
     },
     {
       icon: Linkedin,
       title: 'LinkedIn',
-      value: 'in/yourprofile',
-      href: 'https://linkedin.com/in/yourprofile',
+      value: 'Tengu Calson Genesis',
+      href: 'https://linkedin.com/in/tengu-calson-genesis-438a83277',
       color: 'bg-gradient-to-br from-blue-600 to-blue-400',
       hover: 'hover:shadow-lg hover:shadow-blue-600/20'
     },
     {
       icon: Github,
       title: 'GitHub',
-      value: 'yourusername',
-      href: 'https://github.com/yourusername',
+      value: 'Calson974',
+      href: 'https://github.com/Calson974',
       color: 'bg-gradient-to-br from-gray-700 to-gray-500',
       hover: 'hover:shadow-lg hover:shadow-gray-500/20'
     },
     {
       icon: MessageCircle,
       title: 'WhatsApp',
-      value: '+1234567890',
-      href: 'https://wa.me/1234567890',
+      value: '+237681849054',
+      href: 'https://wa.me/237681849054',
       color: 'bg-gradient-to-br from-green-500 to-green-400',
       hover: 'hover:shadow-lg hover:shadow-green-500/20'
     },
     {
       icon: MapPin,
       title: 'Location',
-      value: 'City, Country',
+      value: 'Bamenda, Cameroon',
       href: 'https://maps.google.com',
       color: 'bg-gradient-to-br from-emerald-500 to-teal-400',
       hover: 'hover:shadow-lg hover:shadow-emerald-500/20'
