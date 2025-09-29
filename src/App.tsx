@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react'
+import { Suspense, lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import { ThemeProvider } from './contexts/ThemeContext'
@@ -13,6 +13,7 @@ const Home = lazy(() => import('./pages/Home'))
 const Projects = lazy(() => import('./pages/Projects'))
 const Blog = lazy(() => import('./pages/Blog'))
 const Contact = lazy(() => import('./pages/Contact'))
+const UnderConstruction = lazy(() => import('./pages/UnderConstruction'))
 
 /**
  * Main App Component
@@ -39,6 +40,7 @@ function App() {
                     <Route path="/projects" element={<Projects />} />
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/under-construction" element={<UnderConstruction />} />
                   </Routes>
                 </Suspense>
               </AnimatePresence>

@@ -11,7 +11,7 @@ export default defineConfig({
   },
   server: {
     port: 3000,
-    strictPort: true,
+    strictPort: false, // Allow fallback to other ports if 3000 is in use
     open: true,
     host: true,
   },
@@ -26,7 +26,12 @@ export default defineConfig({
       'react-dom',
       'react-router-dom',
       'react-helmet-async',
-      'framer-motion'
+      'framer-motion',
+      'lucide-react',
+      'react-hook-form',
+      '@hookform/resolvers',
+      'yup',
+      'react-hot-toast'
     ]
   }
 })

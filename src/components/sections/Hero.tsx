@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Download, Mail, Github, Linkedin } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { useScroll } from '../../contexts/ScrollContext'
 
 /**
@@ -153,18 +154,20 @@ const Hero: React.FC = () => {
                 </span>
               </motion.button>
 
-              <motion.a
-                href="/assets/Calson_Genesis_CV.pdf"
-                download
-                className="group relative px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl font-semibold hover:border-blue-600 dark:hover:border-blue-400 transition-all duration-300"
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="flex items-center gap-2">
-                  <Download className="w-5 h-5" />
-                  Download CV
-                </span>
-              </motion.a>
+                <Link
+                  to="/under-construction"
+                  className="group relative px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl font-semibold hover:border-blue-600 dark:hover:border-blue-400 transition-all duration-300 block"
+                >
+                  <span className="flex items-center gap-2">
+                    <Download className="w-5 h-5" />
+                    Download CV
+                  </span>
+                </Link>
+              </motion.div>
             </motion.div>
 
             {/* Social Links */}
