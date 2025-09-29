@@ -1,8 +1,9 @@
-import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react'
+import { createContext, useContext, useEffect, useState, ReactNode } from 'react'
 
 interface ScrollContextType {
   scrollY: number
   isScrolled: boolean
+  scrollDirection: 'up' | 'down' | null
   scrollToSection: (sectionId: string) => void
 }
 
@@ -22,6 +23,8 @@ interface ScrollProviderProps {
  */
 export function ScrollProvider({ children }: ScrollProviderProps) {
   const [scrollY, setScrollY] = useState(0)
+  const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | null>(null)
+  const [lastScrollY, setLastScrollY] = useState(0)
   const isScrolled = scrollY > 50
 
   const scrollToSection = (sectionId: string) => {
@@ -41,7 +44,17 @@ export function ScrollProvider({ children }: ScrollProviderProps) {
     let ticking = false
 
     const updateScrollY = () => {
-      setScrollY(window.scrollY)
+      const currentScrollY = window.scrollY
+      setScrollY(currentScrollY)
+
+      // Determine scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setScrollDirection('down')
+      } else if (currentScrollY < lastScrollY) {
+        setScrollDirection('up')
+      }
+
+      setLastScrollY(currentScrollY)
       ticking = false
     }
 
@@ -54,11 +67,12 @@ export function ScrollProvider({ children }: ScrollProviderProps) {
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [lastScrollY])
 
   const value = {
     scrollY,
     isScrolled,
+    scrollDirection,
     scrollToSection
   }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Sun, Moon } from 'lucide-react'
@@ -18,8 +18,9 @@ import { cn } from '../utils/cn'
  */
 const Header: React.FC = () => {
   const { isDark, toggleTheme } = useTheme()
-  const { isScrolled, scrollToSection } = useScroll()
+  const { isScrolled, scrollDirection, scrollToSection } = useScroll()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isHeaderHidden, setIsHeaderHidden] = useState(false)
   const location = useLocation()
 
   const navItems = [
@@ -37,6 +38,22 @@ const Header: React.FC = () => {
     setIsMobileMenuOpen(false)
   }
 
+  // Auto-hide header on scroll down, show on scroll up
+  useEffect(() => {
+    if (scrollDirection === 'down' && !isMobileMenuOpen) {
+      setIsHeaderHidden(true)
+    } else if (scrollDirection === 'up' || isMobileMenuOpen) {
+      setIsHeaderHidden(false)
+    }
+  }, [scrollDirection, isMobileMenuOpen])
+
+  // Close mobile menu when scrolling
+  useEffect(() => {
+    if (isMobileMenuOpen && scrollDirection === 'down') {
+      setIsMobileMenuOpen(false)
+    }
+  }, [scrollDirection, isMobileMenuOpen])
+
   return (
     <motion.header
       className={cn(
@@ -46,8 +63,11 @@ const Header: React.FC = () => {
           : 'bg-transparent'
       )}
       initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      animate={{
+        y: isHeaderHidden ? -100 : 0,
+        opacity: isHeaderHidden ? 0 : 1
+      }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
