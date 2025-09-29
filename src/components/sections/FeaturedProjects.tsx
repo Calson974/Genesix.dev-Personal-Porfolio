@@ -29,8 +29,8 @@ const FeaturedProjects: React.FC = () => {
     {
       id: 1,
       title: 'E-commerce Platform',
-      description: 'Full-stack e-commerce solution with modern architecture',
-      longDescription: 'A comprehensive e-commerce platform featuring product catalog, secure payment processing, user authentication, inventory management, and comprehensive admin dashboard with real-time analytics.',
+      description: 'NOVAShop is a modern e-commerce website designed to showcase and sell premium electronics and gadgets. This project features a responsive design, dynamic product rendering, and interactive user experiences, making it a great starting point for building a professional online store.',
+      longDescription: 'NOVAShop is a modern e-commerce website designed to showcase and sell premium electronics and Gadgets',
       images: [
         '/img/Nova-shop img/novashop-img1.png',
         '/img/Nova-shop img/novashop-img2.png',
@@ -38,15 +38,16 @@ const FeaturedProjects: React.FC = () => {
         '/img/Nova-shop img/novashop-img4.png',
         '/img/Nova-shop img/novashop-img5.png'
       ],
-      technologies: ['React', 'TypeScript', 'Node.js', 'Stripe', 'PostgreSQL', 'Tailwind CSS', 'Next.js'],
+      technologies: ['HTML5','CSS3','JavaScript','Local Storage'],
       category: 'web-app',
       githubUrl: 'https://github.com/Calson974/NOVAShop',
       liveUrl: 'https://nova-shop-git-main-calson974s-projects.vercel.app',
       featured: true,
       specimenType: 'web-ecosystem',
-      compound: 'Full-Stack Compound',
-      molecularWeight: '7 Technologies',
-      stability: 'Production Stable'
+      compound: 'Front-End Compound',
+      molecularWeight: '4 Technologies',
+      stability: 'Production Stable',
+      implementationNotes: 'NOVAShop started as a simple idea: what if I could build a shopping platform from the ground up and shape every part of the experience? I wanted to go beyond static pages and create something that felt alive, where users could browse, view products in detail, and manage a cart with ease.\n\nWhile building it, I focused on the small things that make shopping online feel natural-smooth navigation, layouts that adjust across devices, and a cart system that responds instantly to every action. Each feature taught me something about balancing design and functionality, from writing cleaner code to thinking through the flow of a customer\'s journey.\n\nFor me, NOVAShop isn\'t just a demo. It\'s a foundation that can grow into a full platform, with space for future features like accounts, payments, and product filters. More importantly, it reflects how I approach projects: start with curiosity, solve one problem at a time, and keep improving until it feels right.'
     },
     {
       id: 2,
@@ -58,15 +59,16 @@ const FeaturedProjects: React.FC = () => {
         '/img/Magic-card-game img/magiccard-img2.png',
         '/img/Magic-card-game img/magiccard-img3.png'
       ],
-      technologies: ['HTML5', 'CSS3', 'JavaScript', 'Canvas API', 'Local Storage', 'GSAP'],
+      technologies: ['HTML5', 'CSS3', 'JavaScript','Local Storage'],
       category: 'game',
       githubUrl: 'https://github.com/Calson974/Memory-Magic-Memory-Game',
       liveUrl: 'https://memory-magic-memory-game-git-master-calson974s-projects.vercel.app',
       featured: true,
       specimenType: 'neural-network',
       compound: 'Interactive Compound',
-      molecularWeight: '6 Technologies',
-      stability: 'Memory Optimized'
+      molecularWeight: '4 Technologies',
+      stability: 'Memory Optimized',
+      implementationNotes: 'The Memory Card Game project began with a fascination for cognitive training and game development. I wanted to create something that was both entertaining and mentally stimulating, challenging players to improve their memory and concentration skills while having fun.\n\nThe core challenge was implementing the card-flipping mechanics with smooth animations and proper state management. I focused on creating an intuitive user experience with clear visual feedback, ensuring the game felt responsive and engaging across all devices.\n\nWhat started as a simple matching game evolved into a comprehensive cognitive training tool with multiple difficulty levels, progress tracking, and performance analytics. The project taught me valuable lessons about game design, user engagement, and the psychology of learning through play.'
     },
     {
       id: 3,
@@ -78,15 +80,16 @@ const FeaturedProjects: React.FC = () => {
         '/img/List-it-yourself img/list-it img2.png',
         '/img/List-it-yourself img/list-it img3.png'
       ],
-      technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Socket.io', 'Redux'],
+      technologies: ['HTML5', 'CSS3', 'JavaScript', 'Local Storage'],
       category: 'web-app',
       githubUrl: 'https://github.com/Calson974/List-it-Yourself---To-do-App',
       liveUrl: 'https://list-it-yourself-to-do-app-git-master-calson974s-projects.vercel.app',
       featured: true,
       specimenType: 'data-structure',
       compound: 'Real-time Compound',
-      molecularWeight: '6 Technologies',
-      stability: 'Highly Scalable'
+      molecularWeight: '4 Technologies',
+      stability: 'Highly Scalable',
+      implementationNotes: 'The Task Management App was born from my own need for a simple yet powerful productivity tool. As someone who juggles multiple projects and deadlines, I wanted something that could help me stay organized without being overly complex.\n\nThe biggest challenge was creating an intuitive drag-and-drop interface that felt natural and responsive. I spent considerable time perfecting the user experience, ensuring tasks could be moved effortlessly between different states and categories.\n\nThis project reinforced my belief in the power of simplicity. Sometimes the most effective solutions are the ones that strip away unnecessary complexity and focus on what users actually need. The local storage integration ensures data persistence, while the clean, responsive design works seamlessly across all devices.'
     }
   ]
 
@@ -539,11 +542,6 @@ const FeaturedProjects: React.FC = () => {
 
                   {/* Holographic Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-                  {/* Specimen Number */}
-                  <div className="absolute top-4 right-4 bg-black/60 dark:bg-black/50 backdrop-blur-sm px-2 py-1 rounded-lg">
-                    <span className="text-xs text-blue-300 font-mono">#{String(project.id).padStart(3, '0')}</span>
-                  </div>
                 </div>
               </motion.div>
             )
@@ -796,8 +794,8 @@ const FeaturedProjects: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg mb-2 dark:text-white text-gray-900">Implementation Notes</h4>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                      This project demonstrates advanced {selectedProject.technologies.slice(0, 3).join(', ')} integration with a focus on scalability, performance, and user experience. The architecture follows modern best practices with clean code structure and comprehensive error handling.
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                      {selectedProject.implementationNotes}
                     </p>
                   </div>
                 </div>

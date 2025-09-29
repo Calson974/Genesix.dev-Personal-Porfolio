@@ -134,25 +134,12 @@ const Contact: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = () => {
+    // Show submitting state but don't prevent default form submission
     setFormState('submitting');
 
-    try {
-      // Replace with your form submission logic
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setFormState('success');
-      setFormData({ name: '', email: '', message: '' });
-
-      // Reset form state after 3 seconds
-      setTimeout(() => setFormState('idle'), 3000);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setFormState('error');
-
-      // Reset error state after 3 seconds
-      setTimeout(() => setFormState('idle'), 3000);
-    }
+    // Let the form submit naturally to Formspree
+    // The page will redirect to Formspree's success page
   };
 
   const contactInfo = [
@@ -282,7 +269,7 @@ const Contact: React.FC = () => {
               <h3 className="text-2xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
                 Drop Me a Line
               </h3>
-              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+              <form ref={formRef} action="https://formspree.io/f/xanjeobn" method="POST" onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Your Name
@@ -297,7 +284,7 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                       required
                       className="relative w-full px-4 py-3 bg-white/80 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 backdrop-blur-sm"
-                      placeholder="John Doe"
+                      placeholder="Yourname"
                       onMouseEnter={() => setCursorVariant('hover')}
                       onMouseLeave={() => setCursorVariant('default')}
                     />
@@ -318,7 +305,7 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                       required
                       className="relative w-full px-4 py-3 bg-white/80 dark:bg-gray-700/50 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 backdrop-blur-sm"
-                      placeholder="john@example.com"
+                      placeholder="email@example.com"
                       onMouseEnter={() => setCursorVariant('hover')}
                       onMouseLeave={() => setCursorVariant('default')}
                     />

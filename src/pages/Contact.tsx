@@ -38,20 +38,23 @@ const Contact: React.FC = () => {
     resolver: yupResolver(contactSchema)
   })
 
-  const onSubmit = async (data: ContactFormData) => {
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      // In a real app, you would send the email here
-      console.log('Form data:', data)
-      
-      toast.success('Message sent successfully! I\'ll get back to you soon.')
-      reset()
-    } catch (error) {
-      toast.error('Failed to send message. Please try again.')
-    }
-  }
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Trigger React Hook Form validation
+    const isValid = await handleSubmit((data) => {
+      // If validation passes, show success and let form submit naturally
+      toast.success('Message sent successfully! I\'ll get back to you soon.');
+      reset();
+
+      // Let the form submit naturally to Formspree after a brief delay
+      setTimeout(() => {
+        (e.target as HTMLFormElement).submit();
+      }, 100);
+    })();
+
+    // If validation fails, the errors will be displayed by React Hook Form
+  };
 
   const contactInfo = [
     {
@@ -232,7 +235,7 @@ const Contact: React.FC = () => {
                   Send Me a Message
                 </h3>
                 
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <form action="https://formspree.io/f/xanjeobn" method="POST" onSubmit={onSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-2">
