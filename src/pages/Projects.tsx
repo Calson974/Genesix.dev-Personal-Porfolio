@@ -124,12 +124,14 @@ const Projects: React.FC = () => {
   }
 
   const filteredProjects = useMemo(() => {
-    return projects.filter(project => {
+    const filtered = projects.filter(project => {
       const matchesFilter = filter === 'all' || project.category === filter
       const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            project.technologies.some(tech => tech.toLowerCase().includes(searchTerm.toLowerCase()))
       return matchesFilter && matchesSearch
     })
+    // Sort by technologies count (descending)
+    return filtered.sort((a, b) => (b.technologies?.length || 0) - (a.technologies?.length || 0))
   }, [filter, searchTerm])
 
   // Image Slider Component

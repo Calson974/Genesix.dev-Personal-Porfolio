@@ -90,8 +90,34 @@ const FeaturedProjects: React.FC = () => {
       molecularWeight: '4 Technologies',
       stability: 'Highly Scalable',
       implementationNotes: 'The Task Management App was born from my own need for a simple yet powerful productivity tool. As someone who juggles multiple projects and deadlines, I wanted something that could help me stay organized without being overly complex.\n\nThe biggest challenge was creating an intuitive drag-and-drop interface that felt natural and responsive. I spent considerable time perfecting the user experience, ensuring tasks could be moved effortlessly between different states and categories.\n\nThis project reinforced my belief in the power of simplicity. Sometimes the most effective solutions are the ones that strip away unnecessary complexity and focus on what users actually need. The local storage integration ensures data persistence, while the clean, responsive design works seamlessly across all devices.'
+    },
+    {
+      id: 4,
+      title: 'Magix Plan Ahead',
+      description: 'Magix Plan Ahead is a web application designed to help users plan and organize their daily tasks and events.',
+      longDescription: 'Magix Plan Ahead is a web application designed to help users plan and organize their daily tasks and events. The application features a clean and intuitive interface, allowing users to easily create and manage their tasks and events.',
+      images: [
+        '/img/magix img/magix img1.png',
+        '/img/magix img/magix img2.png',
+        '/img/magix img/magix img3.png',
+        '/img/magix img/magix img4.png',
+        '/img/magix img/magix img5.png'
+      ],
+      technologies: ['Tailwind CSS', 'React', 'CSS3', 'JavaScript', 'Typescript', 'Node.js', 'PostgreSQL', 'Vite', 'Shadcn-ui'],
+      category: 'web-app',
+      githubUrl: 'https://github.com/Calson974/Magix-Plan-Ahead',
+      liveUrl: 'https://magixplanahead.vercel.app',
+      featured: true,
+      specimenType: 'data-structure',
+      compound: 'Real-time Compound',
+      molecularWeight: '9 Technologies',
+      stability: 'Highly Scalable',
+      implementationNotes: 'Magix Plan Ahead was built using React and features a clean and intuitive interface. The application allows users to easily create and manage their tasks and events, and also features a real-time update system to keep users informed of any changes.'
     }
   ]
+
+  // Order projects by number of technologies (descending)
+  const sortedProjects = [...projects].sort((a, b) => (b.technologies?.length || 0) - (a.technologies?.length || 0))
 
   // Image Slider Component
   const ImageSlider: React.FC<{
@@ -307,7 +333,7 @@ const FeaturedProjects: React.FC = () => {
 
         {/* Specimen Laboratory Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16" ref={containerRef}>
-          {projects.map((project, index) => {
+          {sortedProjects.map((project, index) => {
             const SpecimenIcon = getSpecimenIcon(project.specimenType)
 
             return (
