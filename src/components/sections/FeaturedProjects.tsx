@@ -109,7 +109,7 @@ const FeaturedProjects: React.FC = () => {
       technologies: ['Tailwind CSS', 'React', 'CSS3', 'JavaScript', 'Typescript', 'Node.js', 'PostgreSQL', 'Vite', 'Shadcn-ui'],
       category: 'web-app',
       githubUrl: 'https://github.com/Calson974/Magix-Plan-Ahead',
-      liveUrl: 'https://magixplanahead.vercel.app',
+      liveUrl: 'https://magixplanahead.ytvercel.app',
       featured: true,
       specimenType: 'data-structure',
       compound: 'Real-time Compound',
