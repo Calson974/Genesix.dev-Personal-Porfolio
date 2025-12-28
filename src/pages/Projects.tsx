@@ -22,28 +22,58 @@ const Projects: React.FC = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [activeSearchIndex, setActiveSearchIndex] = useState(0)
 
-  // Custom useInView hook
-  const useInView = (options: any) => {
+  // Custom useInView hook with proper TypeScript types
+  const useInView = (options: IntersectionObserverInit): [React.RefObject<HTMLDivElement>, boolean] => {
     const [inView, setInView] = useState(false)
     const ref = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-      const observer = new IntersectionObserver(
-        ([entry]) => setInView(entry.isIntersecting),
-        options
-      )
-      if (ref.current) observer.observe(ref.current)
-      return () => observer.disconnect()
+      const observer = new IntersectionObserver(([entry]) => {
+        setInView(entry.isIntersecting)
+      }, options)
+
+      const currentRef = ref.current
+      if (currentRef) {
+        observer.observe(currentRef)
+      }
+
+      return () => {
+        if (currentRef) {
+          observer.unobserve(currentRef)
+        }
+      }
     }, [options])
 
     return [ref, inView]
   }
 
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true })
+  const [ref, inView] = useInView({ threshold: 0.1 })
 
   const projects = [
     {
       id: 1,
+      title: 'Vyon Video App',
+      description: 'A modern YouTube-inspired video streaming platform built with Vite, JavaScript, and Firebase',
+      longDescription: 'Vyon is a modern video streaming platform inspired by YouTube, built with Vite, vanilla JavaScript, and Tailwind CSS. It features a clean, responsive design and leverages Firebase for backend services, providing a seamless video watching experience.',
+      images: [
+        '/img/vyon%20img/managevideos-vyon.jpg',
+        '/img/vyon%20img/profilepage-vyon.jpg',
+        '/img/vyon%20img/watchpage-vyon.jpg',
+        '/img/vyon%20img/Screenshot%202025-12-28%20093835.jpg'
+      ],
+      technologies: ['JavaScript', 'Vite', 'Tailwind CSS', 'Firebase', 'HTML5', 'CSS3'],
+      category: 'web-app',
+      githubUrl: 'https://github.com/Calson974/Vyon-Video-Streaming-App',
+      liveUrl: 'https://vyon.vercel.app',
+      featured: true,
+      specimenType: 'media-stream',
+      compound: 'Media Streaming Compound',
+      molecularWeight: '6 Technologies',
+      stability: 'Production Ready',
+      implementationNotes: 'Vyon Video App was built to explore modern web technologies and create a YouTube-like experience from scratch. The project challenged me to implement complex video streaming functionality while maintaining a clean, responsive UI. Using vanilla JavaScript with Vite for the build process and Tailwind CSS for styling allowed for a fast, efficient development workflow. The app integrates with Firebase for authentication and data storage, providing a robust backend solution without the need for a custom server. This project was a great learning experience in building scalable web applications with modern tooling.'
+    },
+    {
+      id: 2,
       title: 'E-commerce Platform',
       description: 'NOVAShop is a modern e-commerce website designed to showcase and sell premium electronics and gadgets. This project features a responsive design, dynamic product rendering, and interactive user experiences, making it a great starting point for building a professional online store.',
       longDescription: 'NOVAShop is a modern e-commerce website designed to showcase and sell premium electronics and Gadgets',
@@ -66,7 +96,7 @@ const Projects: React.FC = () => {
       implementationNotes: 'NOVAShop started as a simple idea: what if I could build a shopping platform from the ground up and shape every part of the experience? I wanted to go beyond static pages and create something that felt alive, where users could browse, view products in detail, and manage a cart with ease.\n\nWhile building it, I focused on the small things that make shopping online feel natural-smooth navigation, layouts that adjust across devices, and a cart system that responds instantly to every action. Each feature taught me something about balancing design and functionality, from writing cleaner code to thinking through the flow of a customer\'s journey.\n\nFor me, NOVAShop isn\'t just a demo. It\'s a foundation that can grow into a full platform, with space for future features like accounts, payments, and product filters. More importantly, it reflects how I approach projects: start with curiosity, solve one problem at a time, and keep improving until it feels right.'
     },
     {
-      id: 2,
+      id: 3,
       title: 'Memory Card Game',
       description: 'Interactive cognitive training application',
       longDescription: 'An engaging card-matching game with multiple difficulty levels, progress tracking, and cognitive skill development features with smooth animations and responsive design.',
@@ -87,7 +117,7 @@ const Projects: React.FC = () => {
       implementationNotes: 'The Memory Card Game project began with a fascination for cognitive training and game development. I wanted to create something that was both entertaining and mentally stimulating, challenging players to improve their memory and concentration skills while having fun.\n\nThe core challenge was implementing the card-flipping mechanics with smooth animations and proper state management. I focused on creating an intuitive user experience with clear visual feedback, ensuring the game felt responsive and engaging across all devices.\n\nWhat started as a simple matching game evolved into a comprehensive cognitive training tool with multiple difficulty levels, progress tracking, and performance analytics. The project taught me valuable lessons about game design, user engagement, and the psychology of learning through play.'
     },
     {
-      id: 3,
+      id: 4,
       title: 'Task Management App',
       description: 'Productivity application with modern UX principles',
       longDescription: 'A streamlined task management solution with intuitive drag-and-drop interface, team collaboration features, real-time updates, and comprehensive project tracking capabilities.',
@@ -106,6 +136,29 @@ const Projects: React.FC = () => {
       molecularWeight: '4 Technologies',
       stability: 'Highly Scalable',
       implementationNotes: 'The Task Management App was born from my own need for a simple yet powerful productivity tool. As someone who juggles multiple projects and deadlines, I wanted something that could help me stay organized without being overly complex.\n\nThe biggest challenge was creating an intuitive drag-and-drop interface that felt natural and responsive. I spent considerable time perfecting the user experience, ensuring tasks could be moved effortlessly between different states and categories.\n\nThis project reinforced my belief in the power of simplicity. Sometimes the most effective solutions are the ones that strip away unnecessary complexity and focus on what users actually need. The local storage integration ensures data persistence, while the clean, responsive design works seamlessly across all devices.'
+    },
+    {
+      id: 5,
+      title: 'Magix Plan Ahead',
+      description: 'Task and event management application with a clean and intuitive interface',
+      longDescription: 'Magix Plan Ahead is a comprehensive task and event management application designed to help users organize their daily activities, manage projects, and track progress with an intuitive interface and powerful features.',
+      images: [
+        '/img/magix img/magix img1.png',
+        '/img/magix img/magix img2.png',
+        '/img/magix img/magix img3.png',
+        '/img/magix img/magix img4.png',
+        '/img/magix img/magix img5.png'
+      ],
+      technologies: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Vite', 'Shadcn-ui'],
+      category: 'web-app',
+      githubUrl: 'https://github.com/Calson974/magix-plan-ahead',
+      liveUrl: 'https://magixplanahead.vercel.app',
+      featured: true,
+      specimenType: 'data-structure',
+      compound: 'Full-Stack Compound',
+      molecularWeight: '6 Technologies',
+      stability: 'Production Ready',
+      implementationNotes: 'Magix Plan Ahead was built to address the need for a simple yet powerful task management solution. The project combines modern web technologies to deliver a responsive and intuitive user experience. The frontend is built with React and TypeScript, ensuring type safety and maintainable code. The UI is crafted with Shadcn-ui components for a polished look and feel.\n\nOn the backend, Node.js with Express handles the API layer, while PostgreSQL provides reliable data storage. The application features real-time updates, task categorization, and progress tracking. The development workflow was streamlined with Vite, enabling fast refresh cycles and efficient bundling.\n\nThis project was a great opportunity to work with a full-stack TypeScript environment, implement clean architecture patterns, and focus on creating a delightful user experience. The result is a robust, scalable application that helps users stay organized and productive.'
     }
   ]
 

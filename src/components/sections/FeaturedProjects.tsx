@@ -116,6 +116,28 @@ const FeaturedProjects: React.FC = () => {
       molecularWeight: '9 Technologies',
       stability: 'Highly Scalable',
       implementationNotes: 'Magix Plan Ahead was built using React and features a clean and intuitive interface. The application allows users to easily create and manage their tasks and events, and also features a real-time update system to keep users informed of any changes.'
+    },
+    {
+      id: 5,
+      title: 'Vyon Video App',
+      description: 'A modern web app inspired by YouTube, delivering a sleek responsive streaming experience.',
+      longDescription: 'Vyon is a modern video streaming platform inspired by YouTube, built with Vite, vanilla JavaScript, and Tailwind CSS. It features a clean, responsive design and leverages Firebase for backend services, providing a seamless video watching experience.',
+      images: [
+        '/img/vyon img/managevideos-vyon.jpg',
+        '/img/vyon img/profilepage-vyon.jpg',
+        '/img/vyon img/watchpage-vyon.jpg',
+        '/img/vyon img/Screenshot 2025-12-28 093835.jpg'
+      ],
+      technologies: ['JavaScript', 'Vite', 'Tailwind CSS', 'Firebase', 'HTML5', 'CSS3'],
+      category: 'web-app',
+      githubUrl: 'https://github.com/Calson974/Vyon-Video-Streaming-App',
+      liveUrl: 'https://vyon.vercel.app',
+      featured: true,
+      specimenType: 'media-stream',
+      compound: 'Media Streaming Compound',
+      molecularWeight: '6 Technologies',
+      stability: 'Production Ready',
+      implementationNotes: 'Vyon Video App was built to explore modern web technologies and create a YouTube-like experience from scratch. The project challenged me to implement complex video streaming functionality while maintaining a clean, responsive UI. Using vanilla JavaScript with Vite for the build process and Tailwind CSS for styling allowed for a fast, efficient development workflow. The app integrates with Firebase for authentication and data storage, providing a robust backend solution without the need for a custom server. This project was a great learning experience in building scalable web applications with modern tooling.'
     }
   ]
 

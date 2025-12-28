@@ -15,6 +15,15 @@ const ProjectsSection: React.FC = () => {
   const featuredProjects: Project[] = [
     {
       id: 1,
+      title: "Vyon Video App",
+      description: "A modern YouTube-inspired video streaming platform built with Vite, JavaScript, and Firebase",
+      image: "/img/vyon%20img/managevideos-vyon.jpg",
+      technologies: ["JavaScript", "Vite", "Tailwind CSS", "Firebase"],
+      liveUrl: "https://vyon.vercel.app",
+      githubUrl: "https://github.com/Calson974/Vyon-Video-Streaming-App"
+    },
+    {
+      id: 2,
       title: "Personal Portfolio",
       description: "A modern, responsive portfolio website built with React and TypeScript",
       image: "/img/Me-Square-transparent2.png",
@@ -22,7 +31,15 @@ const ProjectsSection: React.FC = () => {
       liveUrl: "https://genesixdev.vercel.app/",
       githubUrl: "https://github.com/Calson974/Genesix.dev-Personal-Porfolio"
     },
-   
+    {
+      id: 3,
+      title: "Magix Plan Ahead",
+      description: "Task and event management application with a clean and intuitive interface",
+      image: "/img/magix img/magix img1.png",
+      technologies: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+      liveUrl: "https://magixplanahead.ytvercel.app",
+      githubUrl: "https://github.com/Calson974/Magix-Plan-Ahead"
+    }
   ];
 
   return (
